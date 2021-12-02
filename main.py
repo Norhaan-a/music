@@ -1,4 +1,5 @@
 from database import run, get
+import json
 
 # Skriv ut namnen på alla artister
 artists = get('''
@@ -91,16 +92,17 @@ for row in s_per_artist:
 
 # 14 Kunna visa detaljer om en artist där man även ser artistens alla album
 artist_details = get('''
-    select 
-    ar.name as artist_name
-    ,al.title as album_name
-    ,ar.description as artist_details
-    
-    from artists as ar
-    join albums as al
-    on ar.id = al.artist_id;
+    SELECT 
+    ar.name AS artist_name
+    ,ar.description AS artist_details
+    ,group_concat(al.title) AS album_name
+
+    FROM artists AS ar
+    JOIN albums AS al
+    ON ar.id = al.artist_id
+    GROUP BY ar.name;
 ''')
 
 
 for row in artist_details:
-    print(row['artist_name'], (row['artist_details']),(row['album_name']))
+    print('Artist: '+ row['artist_name'] +'\n'+'Details: '+ (row['artist_details'])+'\n'+'Albums: ' +(row['album_name']))
