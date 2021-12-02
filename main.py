@@ -91,7 +91,7 @@ for row in s_per_artist:
 
 # 14 Kunna visa detaljer om en artist där man även ser artistens alla album
 artist_details = get('''
-    select distinct
+    select 
     ar.name as artist_name
     ,al.title as album_name
     ,ar.description as artist_details
