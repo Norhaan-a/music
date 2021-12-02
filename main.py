@@ -49,7 +49,15 @@ run('''
 # skapa album till en artist, 
 # lägga till låtar i ett album
 
+add_name = input('Add artist name: ')
+add_desc = input('Add artist description: ')
+add_thumbnail = input('Add url for thumbnail pic: ')
 
+run(
+    f'''
+    INSERT INTO artists VALUES (NULL, :add_name,:add_desc,:add_thumbnail)
+    ''',{'add_name':add_name,'add_desc':add_desc,'add_thumbnail':add_thumbnail}
+)
 # 8 Kunna ta bort en artist, album eller låt via inmatning
 #Tänk på: Om man tar bort en artist, borde dess album och låtar också tas bort då?
 #Tips: Kolla upp “Cascade on Delete” i SQLite
