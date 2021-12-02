@@ -97,7 +97,7 @@ artist_details = get('''
     ,ar.description as artist_details
     
     from artists ar
-    inner join albums al
+    join albums al
     on ar.id = al.artist_id;
 ''')
 
