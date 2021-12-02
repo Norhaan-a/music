@@ -89,3 +89,18 @@ s_per_artist = get('''
 for row in s_per_artist:
     print(row['name'], (row['count_song']))
 
+# 14 Kunna visa detaljer om en artist där man även ser artistens alla album
+artist_details = get('''
+    select distinct
+    ar.name as artist_name
+    ,al.title as album_name
+    ,ar.description as artist_details
+    
+    from artists ar
+    inner join albums al
+    on ar.id = al.artist_id;
+''')
+
+
+for row in artist_details:
+    print(row['artist_name'], (row['artist_details']),(row['album_name']))
