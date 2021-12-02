@@ -1,7 +1,7 @@
 from database import run, get
 import json
 
-# Skriv ut namnen på alla artister
+# 3 Skriv ut namnen på alla artister
 artists = get('''
     SELECT * FROM artists
 ''')
@@ -10,7 +10,7 @@ for row in artists:
    print(row['name'])
 
  
-# Skriv ut det äldsta albumet
+# 4 Skriv ut det äldsta albumet
 albums = get('''
     select distinct
     a.title,
@@ -24,7 +24,7 @@ albums = get('''
 for row in albums:
     print(row['title'])
 
-# Skriv ut albumet med längts speltid
+# 5 Skriv ut albumet med längts speltid
 songs = get('''
     SELECT a.title, s.album_id, sum(duration) as duration
     FROM songs AS s
@@ -37,20 +37,24 @@ songs = get('''
 for row in songs:
     print(row['title'])
 
-# Uppdatera albumet som saknar year_released med ett årtal
+# 6 Uppdatera albumet som saknar year_released med ett årtal
 run('''
     UPDATE albums
     SET year_released = 1999
     WHERE year_released is null
 ''')
 
-#Lägg till data via inmatning, Kunna skapa en artist, skapa album till en artist, lägga till låtar i ett album
+# 7 Lägg till data via inmatning:
+# Kunna skapa en artist, 
+# skapa album till en artist, 
+# lägga till låtar i ett album
 
-#Kunna ta bort en artist, album eller låt via inmatning
+
+# 8 Kunna ta bort en artist, album eller låt via inmatning
 #Tänk på: Om man tar bort en artist, borde dess album och låtar också tas bort då?
 #Tips: Kolla upp “Cascade on Delete” i SQLite
 
-# Skriv ut medel-längden på en låt i ett album
+# 9 Skriv ut medel-längden på en låt i ett album
 song_average = get('''
     SELECT title, AVG(duration) AS avg_duration
     FROM songs AS s
@@ -63,7 +67,7 @@ for row in song_average:
     print(row['title'], (row['avg_duration']))
 
 
-# Visa den längsta låten från varje album
+# 10 Visa den längsta låten från varje album
 s_max_length = get('''
     SELECT title, MAX(duration) AS max_duration
     FROM songs AS s
@@ -75,7 +79,7 @@ s_max_length = get('''
 for row in s_max_length:
     print(row['title'], (row['max_duration']))
 
-# Visa antal låtar varje artist har
+# 11 Visa antal låtar varje artist har
 s_per_artist = get('''
     SELECT COUNT(s.id) AS count_song, artists.name
     FROM songs AS s
@@ -89,6 +93,10 @@ s_per_artist = get('''
 
 for row in s_per_artist:
     print(row['name'], (row['count_song']))
+
+# 12 Kunna söka på artister via inmatning
+
+# 13 Kunna söka på låtar via inmatning
 
 # 14 Kunna visa detaljer om en artist där man även ser artistens alla album
 artist_details = get('''
@@ -106,3 +114,12 @@ artist_details = get('''
 
 for row in artist_details:
     print('Artist: '+ row['artist_name'] +'\n'+'Details: '+ (row['artist_details'])+'\n'+'Albums: ' +(row['album_name']))
+
+# 15 Kunna visa detaljer om ett album där man även ser albumets låtar
+
+# 16 Detaljsidan för en artist och album visar även,
+# hur många låtar varje album har
+# och total speltid för ett album
+
+# 17 Gör så att alla listor går att sortera på olika egenskaper,
+# som name, year_released eller duration
