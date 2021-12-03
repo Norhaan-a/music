@@ -77,7 +77,7 @@ new_album = [{
 
 for g in new_album:
     new_g = run('INSERT INTO albums values(NULL, :title, :description, :year released, :thumbnail, :artist id)',f)
-    print(new_f)
+    print(new_g)
 
 # lägga till låtar i ett album
 add_name = input('Add song name: ')
@@ -86,16 +86,15 @@ add_youtube_id = input('Add youtube id for song: ')
 add_album_id = input('Add album id for song: ')
 
 new_song = [{
-    'title': add_title,
-    'description': add_desc,
-    'year released': add_year_released,
-    'thumbnail': add_thumbnail,
-    'artist id': add_artist_id
+    'name': add_name,
+    'duration': add_duration,
+    'youtube id': add_youtube_id,
+    'album id': add_album_id
 }]
 
 for h in new_song:
-    new_h = run('INSERT INTO songs values(NULL, :title, :description, :year released, :thumbnail, :artist id)',f)
-    print(new_f)
+    new_h = run('INSERT INTO songs values(NULL, :name, :duration, :youtube id, :album id)',f)
+    print(new_h)
 #run(
  #   f'''
   #  INSERT INTO artists VALUES (NULL, :add_name,:add_desc,:add_thumbnail)
