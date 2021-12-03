@@ -46,55 +46,55 @@ import json
 
 # 7 Lägg till data via inmatning:
 # Kunna skapa en artist,
-add_name = input('Add artist name: ')
-add_desc = input('Add artist description: ')
-add_thumbnail = input('Add url for thumbnail pic: ')
+# add_name = input('Add artist name: ')
+# add_desc = input('Add artist description: ')
+# add_thumbnail = input('Add url for thumbnail pic: ')
 
-new_artist = [{
-    'name': add_name,
-    'description': add_desc,
-    'thumbnail': add_thumbnail
-}]
+# new_artist = [{
+#     'name': add_name,
+#     'description': add_desc,
+#     'thumbnail': add_thumbnail
+# }]
 
-for f in new_artist:
-    new_f = run('INSERT INTO artists values(NULL, :name, :description, :thumbnail)',f)
-    print(new_f)
+# for f in new_artist:
+#     new_f = run('INSERT INTO artists values(NULL, :name, :description, :thumbnail)',f)
+#     print(new_f)
 
-# skapa album till en artist,
-add_title = input('Add album title: ')
-add_desc = input('Add album description: ')
-add_year_released = input('Add year released for album: ')
-add_thumbnail = input('Add url for thumbnail pic: ')
-add_artist_id = int(input('Add artist id for album: '))
+# # skapa album till en artist,
+# add_title = input('Add album title: ')
+# add_desc = input('Add album description: ')
+# add_year_released = input('Add year released for album: ')
+# add_thumbnail = input('Add url for thumbnail pic: ')
+# add_artist_id = int(input('Add artist id for album: '))
 
-new_album = [{
-    'title': add_title,
-    'description': add_desc,
-    'year_released': add_year_released,
-    'thumbnail': add_thumbnail,
-    'artist_id': add_artist_id
-}]
+# new_album = [{
+#     'title': add_title,
+#     'description': add_desc,
+#     'year_released': add_year_released,
+#     'thumbnail': add_thumbnail,
+#     'artist_id': add_artist_id
+# }]
 
-for g in new_album:
-    new_g = run('INSERT INTO albums values(NULL, :title, :description, :year_released, :thumbnail, :artist_id)',g)
-    print(new_g)
+# for g in new_album:
+#     new_g = run('INSERT INTO albums values(NULL, :title, :description, :year_released, :thumbnail, :artist_id)',g)
+#     print(new_g)
 
-# lägga till låtar i ett album
-add_name = input('Add song name: ')
-add_duration = input('Add song duration: ')
-add_youtube_id = input('Add youtube id for song: ')
-add_album_id = input('Add album id for song: ')
+# # lägga till låtar i ett album
+# add_name = input('Add song name: ')
+# add_duration = input('Add song duration: ')
+# add_youtube_id = input('Add youtube id for song: ')
+# add_album_id = input('Add album id for song: ')
 
-new_song = [{
-    'name': add_name,
-    'duration': add_duration,
-    'youtube_id': add_youtube_id,
-    'album_id': add_album_id
-}]
+# new_song = [{
+#     'name': add_name,
+#     'duration': add_duration,
+#     'youtube_id': add_youtube_id,
+#     'album_id': add_album_id
+# }]
 
-for h in new_song:
-    new_h = run('INSERT INTO songs values(NULL, :name, :duration, :youtube_id, :album_id)',h)
-    print(new_h)
+# for h in new_song:
+#     new_h = run('INSERT INTO songs values(NULL, :name, :duration, :youtube_id, :album_id)',h)
+#     print(new_h)
 #run(
  #   f'''
   #  INSERT INTO artists VALUES (NULL, :add_name,:add_desc,:add_thumbnail)
@@ -104,6 +104,8 @@ for h in new_song:
 # 8 Kunna ta bort en artist, album eller låt via inmatning
 #Tänk på: Om man tar bort en artist, borde dess album och låtar också tas bort då?
 #Tips: Kolla upp “Cascade on Delete” i SQLite
+
+delete_artist = run('DELETE FROM artists WHERE id = 4')
 
 # 9 Skriv ut medel-längden på en låt i ett album
 # song_average = get('''
