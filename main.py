@@ -105,7 +105,7 @@ import json
 #Tänk på: Om man tar bort en artist, borde dess album och låtar också tas bort då?
 #Tips: Kolla upp “Cascade on Delete” i SQLite
 
-delete_artist = run('DELETE FROM artists WHERE id = 4')
+#delete_artist = run('DELETE FROM artists WHERE id = 4')
 
 # 9 Skriv ut medel-längden på en låt i ett album
 # song_average = get('''
@@ -147,9 +147,15 @@ delete_artist = run('DELETE FROM artists WHERE id = 4')
 # for row in s_per_artist:
 #     print(row['name'], (row['count_song']))
 
-# # 12 Kunna söka på artister via inmatning
+# 12 Kunna söka på artister via inmatning
+artist_by_name = get('''
+    SELECT * FROM artists WHERE name LIKE :search''',
+    {'search' : f'%{search_artist}%'})
 
-# # 13 Kunna söka på låtar via inmatning
+for artist in artist_by_name:
+    print(artist['name'])
+
+# 13 Kunna söka på låtar via inmatning
 
 # # 14 Kunna visa detaljer om en artist där man även ser artistens alla album
 # artist_details = get('''
