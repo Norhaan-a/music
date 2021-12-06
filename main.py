@@ -148,14 +148,26 @@ import json
 #     print(row['name'], (row['count_song']))
 
 # 12 Kunna söka på artister via inmatning
-artist_by_name = get('''
-    SELECT * FROM artists WHERE name LIKE :search''',
-    {'search' : f'%{search_artist}%'})
+# artist_name = input('find an artist by name: ')
 
-for artist in artist_by_name:
-    print(artist['name'])
+# find_artist = get('''
+#     SELECT * FROM artists WHERE name LIKE :search''',
+#         {'search' : f'%{artist_name}%'})
+
+# for artist in find_artist:
+#     print(artist['name'])
 
 # 13 Kunna söka på låtar via inmatning
+# song_name = input('find a song by name: ')
+
+# find_song = get('''
+#     SELECT songs.id, songs.name FROM songs WHERE name LIKE :search
+#     ''',
+#         {'search': f'%{song_name}%'}
+#     )
+
+# for song in find_song:
+#         print(song[0], song[1])
 
 # # 14 Kunna visa detaljer om en artist där man även ser artistens alla album
 # artist_details = get('''
