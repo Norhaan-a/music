@@ -109,7 +109,7 @@ import json
 
 # 9 Skriv ut medel-längden på en låt i ett album
 # song_average = get('''
-#     SELECT title, AVG(duration) AS avg_duration
+#     SELECT title, AVG(duration) AS avg_song_duration_seconds
 #     FROM songs AS s
 #     JOIN albums AS a
 #     ON s.album_id = a.id
@@ -117,7 +117,7 @@ import json
 # ''')
 
 # for row in song_average:
-#     print(row['title'], (row['avg_duration']))
+#     print(row['title'], (row['avg_song_duration_seconds']))
 
 
 # # 10 Visa den längsta låten från varje album
