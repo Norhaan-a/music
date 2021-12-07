@@ -1,7 +1,7 @@
 from database import run, get
 import json
 
-# 3 Skriv ut namnen på alla artister
+#3 Skriv ut namnen på alla artister
 # artists = get('''
 #     SELECT * FROM artists
 # ''')
@@ -170,17 +170,19 @@ import json
 #         print(song[0], song[1])
 
 # # 14 Kunna visa detaljer om en artist där man även ser artistens alla album
-# artist_details = get('''
-#     SELECT 
-#     ar.name AS artist_name
-#     ,ar.description AS artist_details
-#     ,group_concat(al.title) AS album_name
+#artist_details = get(
+'''
+     SELECT 
+     ar.name AS artist_name
+     ,ar.description AS artist_details
+     ,group_concat(al.title) AS album_name
 
-#     FROM artists AS ar
-#     JOIN albums AS al
-#     ON ar.id = al.artist_id
-#     GROUP BY ar.name;
-# ''')
+     FROM artists AS ar
+     JOIN albums AS al
+     ON ar.id = al.artist_id
+     GROUP BY ar.name;
+'''
+ #)
 
 
 # for row in artist_details:
@@ -234,3 +236,13 @@ import json
 
 # 17 Gör så att alla listor går att sortera på olika egenskaper,
 # som name, year_released eller duration
+
+#still a work in process that needs to be tested
+#the python variable to get the criteria to sort on
+""" criteria_entered = input('Enter the column name you want to sort by: ')
+# add the below at the bottom of any sql query
+'''
+ORDER BY :criteria
+''', {
+   'criteria': criteria_entered
+   } """
