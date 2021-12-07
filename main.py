@@ -81,7 +81,7 @@ import json
 
 # # lägga till låtar i ett album
 # add_name = input('Add song name: ')
-# add_duration = input('Add song duration: ')
+# add_duration = input('Add song duration in seconds: ')
 # add_youtube_id = input('Add youtube id for song: ')
 # add_album_id = input('Add album id for song: ')
 
