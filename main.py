@@ -207,6 +207,30 @@ import json
 # 16 Detaljsidan för en artist och album visar även,
 # hur många låtar varje album har
 # och total speltid för ett album
+#artist_album_details = get(
+#   '''
+#      SELECT 
+#      ar.name AS Artist_Name
+#      ,al.title AS Album_Name
+#      ,ar.description AS Artist_Details
+#      ,al.description AS Album_Details
+#      ,COUNT(s.name) AS Nr_of_songs
+#      ,SUM(s.duration) AS Total_duration_in_seconds
+#      ,SUM(s.duration)/60 AS Total_duration_in_min
+
+#      FROM artists AS ar
+#      JOIN albums AS al
+#      ON ar.id = al.artist_id
+#      JOIN songs AS s
+#      ON al.id= s.album_id
+
+#      group by al.id   
+#   ''')
+#for row in artist_album_details:
+#   print('ARTIST: '+ row['Artist_Name'] +'\n \n'+ 'ARTIST INFO: '+ row['Artist_Details']+'\n'+ '**END OF ARTIST TEXT*' +'\n \n'
+#   +'ALBUM: '+ row['Album_Name'] +'\n \n'+'ALBUM INFO: '+ str(row['Album_Details']) +'\n'+ '**END OF ALBUM TEXT*' +'\n \n'
+#   +'NR OF SONGS IN ALBUM: ' +str((row['Nr_of_songs'])) + '\n \n' + 'Album length in min: ' + str((row['Total_duration_in_min'])) )
+#   print('------END------''\n')
 
 # 17 Gör så att alla listor går att sortera på olika egenskaper,
 # som name, year_released eller duration
