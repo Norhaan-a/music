@@ -203,6 +203,7 @@ import json
 #for row in album_details:
    #added str conversion to allow NULL to pass through as string
 #   print('Album: '+ row['album_name'] +'\n'+'Details: '+ str(row['album_details'])+'\n'+'Songs: ' +(row['song_name']))
+
 # 16 Detaljsidan för en artist och album visar även,
 # hur många låtar varje album har
 # och total speltid för ett album
