@@ -187,7 +187,22 @@ import json
 #     print('Artist: '+ row['artist_name'] +'\n'+'Details: '+ (row['artist_details'])+'\n'+'Albums: ' +(row['album_name']))
 
 # 15 Kunna visa detaljer om ett album där man även ser albumets låtar
+album_details = get(
+   '''
+      SELECT 
+      al.title AS album_name
+      ,al.description AS album_details
+      ,group_concat(s.name) AS song_name
 
+      FROM albums AS al
+      JOIN songs AS s
+      on al.id = s.album_id
+
+      GROUP BY al.title;
+   ''')
+for row in album_details:
+   #added str conversion to allow NULL to pass through as string
+   print('Album: '+ row['album_name'] +'\n'+'Details: '+ str(row['album_details'])+'\n'+'Songs: ' +(row['song_name']))
 # 16 Detaljsidan för en artist och album visar även,
 # hur många låtar varje album har
 # och total speltid för ett album
