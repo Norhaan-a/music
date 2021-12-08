@@ -180,17 +180,17 @@ import json
 
 # # 14 Kunna visa detaljer om en artist där man även ser artistens alla album
 #artist_details = get(
-'''
-     SELECT 
-     ar.name AS artist_name
-     ,ar.description AS artist_details
-     ,group_concat(al.title) AS album_name
+   # '''
+   #   SELECT 
+   #   ar.name AS artist_name
+   #   ,ar.description AS artist_details
+   #   ,group_concat(al.title) AS album_name
 
-     FROM artists AS ar
-     JOIN albums AS al
-     ON ar.id = al.artist_id
-     GROUP BY ar.name;
-'''
+   #   FROM artists AS ar
+   #   JOIN albums AS al
+   #   ON ar.id = al.artist_id
+   #   GROUP BY ar.name;
+   # '''
  #)
 
 
