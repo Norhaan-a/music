@@ -104,17 +104,17 @@ import json
 # 8 Kunna ta bort en artist, album eller låt via inmatning
 #Tänk på: Om man tar bort en artist, borde dess album och låtar också tas bort då?
 #Tips: Kolla upp “Cascade on Delete” i SQLite
-artist_ids = get('''
-      SELECT
-      name
-      ,id
-      FROM artists
-   ''')
+# artist_ids = get('''
+#       SELECT
+#       name
+#       ,id
+#       FROM artists
+#    ''')
 
-for row in artist_ids:
-    print('Artist name:', row['name'], '\n     ID:', (row['id']))
-choose_artist = input('Please choose the artist id you want to delete: ')
-delete_artist = run('DELETE FROM artists WHERE id = :artist', {'artist': choose_artist})
+# for row in artist_ids:
+#     print('Artist name:', row['name'], '\n     ID:', (row['id']))
+# choose_artist = input('Please choose the artist id you want to delete: ')
+# delete_artist = run('DELETE FROM artists WHERE id = :artist', {'artist': choose_artist})
 
 # 9 Skriv ut medel-längden på en låt i ett album
 # song_average = get('''
