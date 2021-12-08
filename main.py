@@ -206,9 +206,9 @@ import json
    #added str conversion to allow NULL to pass through as string
 #   print('Album: '+ row['album_name'] +'\n'+'Details: '+ str(row['album_details'])+'\n'+'Songs: ' +(row['song_name']))
 
-# 16 Detaljsidan för en artist och album visar även,
-# hur många låtar varje album har
-# och total speltid för ett album
+# # 16 Detaljsidan för en artist och album visar även,
+# # hur många låtar varje album har
+# # och total speltid för ett album
 #artist_album_details = get(
 #   '''
 #      SELECT 
@@ -234,13 +234,13 @@ import json
 #   +'NR OF SONGS IN ALBUM: ' +str((row['Nr_of_songs'])) + '\n \n' + 'Album length in min: ' + str((row['Total_duration_in_min'])) )
 #   print('------END------''\n')
 
-# 17 Gör så att alla listor går att sortera på olika egenskaper,
-# som name, year_released eller duration
+# # 17 Gör så att alla listor går att sortera på olika egenskaper,
+# # som name, year_released eller duration
 
-sorts = get('''
-   SELECT * FROM albums
-   ORDER BY title DESC
-    ''')
+# sorts = get('''
+#    SELECT * FROM albums
+#    ORDER BY title DESC
+#     ''')
 
-for row in sorts:
-   print(row['title'])
+# for row in sorts:
+#    print(row['title'])
