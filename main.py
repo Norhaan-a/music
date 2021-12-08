@@ -237,12 +237,10 @@ import json
 # 17 Gör så att alla listor går att sortera på olika egenskaper,
 # som name, year_released eller duration
 
-#still a work in process that needs to be tested
-#the python variable to get the criteria to sort on
-""" criteria_entered = input('Enter the column name you want to sort by: ')
-# add the below at the bottom of any sql query
-'''
-ORDER BY :criteria
-''', {
-   'criteria': criteria_entered
-   } """
+sorts = get('''
+   SELECT * FROM albums
+   ORDER BY title DESC
+    ''')
+
+for row in sorts:
+   print(row['title'])
