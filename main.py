@@ -24,7 +24,7 @@ import json
 # for row in albums:
 #     print(row['title'])
 
-# 5 Skriv ut albumet med längts speltid
+# 5 Skriv ut albumet med längst speltid
 # songs = get('''
 #     SELECT a.title, s.album_id, sum(duration) as duration
 #     FROM songs AS s
@@ -45,7 +45,7 @@ import json
 # ''')
 
 # 7 Lägg till data via inmatning:
-# Kunna skapa en artist,
+# # Kunna skapa en artist,
 # add_name = input('Add artist name: ')
 # add_desc = input('Add artist description: ')
 # add_thumbnail = input('Add url for thumbnail pic: ')
@@ -104,8 +104,17 @@ import json
 # 8 Kunna ta bort en artist, album eller låt via inmatning
 #Tänk på: Om man tar bort en artist, borde dess album och låtar också tas bort då?
 #Tips: Kolla upp “Cascade on Delete” i SQLite
+artist_ids = get('''
+      SELECT
+      name
+      ,id
+      FROM artists
+   ''')
 
-#delete_artist = run('DELETE FROM artists WHERE id = 4')
+for row in artist_ids:
+    print('Artist name:', row['name'], '\n     ID:', (row['id']))
+choose_artist = input('Please choose the artist id you want to delete: ')
+delete_artist = run('DELETE FROM artists WHERE id = :artist', {'artist': choose_artist})
 
 # 9 Skriv ut medel-längden på en låt i ett album
 # song_average = get('''
